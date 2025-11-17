@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulago Bright Standard Primary School - Save a School, Save a Child's Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue-50: #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-600: #2563eb;
+            --green-50: #f0fdf4;
+            --green-100: #dcfce7;
+            --green-600: #16a34a;
+            --red-50: #fef2f2;
+            --red-100: #fee2e2;
+            --red-500: #ef4444;
+            --red-600: #dc2626;
+            --purple-50: #f5f3ff;
+            --purple-600: #7c3aed;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --yellow-400: #facc15;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: linear-gradient(135deg, var(--blue-50) 0%, var(--green-50) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1.5rem 0;
+        }
+
+        header .container {
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--blue-600);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(90deg, var(--green-600) 0%, var(--blue-600) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-urgent {
+            background: var(--red-500);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            display: inline-block;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6rem;
+            height: 0.25rem;
+            background: var(--blue-600);
+        }
+
+        .bg-white { background: var(--white); }
+        .bg-gray-50 { background: var(--gray-50); }
+        .bg-red-50 { background: var(--red-50); }
+        .bg-gray-900 { background: var(--gray-900); color: var(--white); }
+        .text-white { color: var(--white); }
+        .text-blue-600 { color: var(--blue-600); }
+        .text-green-600 { color: var(--green-600); }
+        .text-red-600 { color: var(--red-600); }
+        .text-purple-600 { color: var(--purple-600); }
+        .text-gray-800 { color: var(--gray-800); }
+        .text-gray-600 { color: var(--gray-600); }
+
+        /* Grid and Flex */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+        @media (max-width: 768px) {
+            .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .text-center { text-align: center; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .space-y-3 > * + * { margin-top: 0.75rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-8 > * + * { margin-top: 2rem; }
+
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+
+        /* Card Styles */
+        .card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            padding: 1.5rem;
+        }
+
+        .icon-card {
+            text-align: center;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+
+        .icon-card .icon {
+            width: 3rem;
+            height: 3rem;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--blue-600);
+            font-size: 1.5rem;
+        }
+
+        .text-3xl { font-size: 1.875rem; font-weight: 700; }
+        .text-2xl { font-size: 1.5rem; font-weight: 700; }
+        .text-xl { font-size: 1.25rem; }
+        .text-lg { font-size: 1.125rem; }
+
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+
+        /* Image Placeholders */
+        .placeholder {
+            background: var(--gray-200);
+            border: 2px dashed var(--gray-300);
+            border-radius: 0.5rem;
+        }
+
+        /* Buttons and Highlights */
+        .highlight {
+            background: var(--red-100);
+            border-left: 4px solid var(--red-500);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .donation-method {
+            background: var(--blue-50);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .donation-method h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .donation-method i {
+            margin-right: 0.75rem;
+            width: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: var(--gray-700);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer {
+            background: var(--gray-900);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\:text-left { text-align: left; }
+            .md\:mb-0 { margin-bottom: 0; }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Mulago Bright Standard Primary School</h1>
+            <p>"Save a School. Save a Child's Future."</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Urgent Appeal: Secure Our School's Future</h2>
+            <p>Help us purchase our land by December 2025 to prevent 288 children from losing their education and falling back into poverty.</p>
+            <div class="hero-urgent">URGENT: $100,000 Needed to Save Our School</div>
+        </div>
+    </section>
+
+    <!-- About the School -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Mulago Bright Standard Primary School</h2>
+            </div>
+            <div class="grid md:grid-cols-2">
+                <div>
+                    <p class="text-gray-600 mb-4">
+                        Mulago Bright Standard Primary School (MBS) is a Private Mixed Day and Boarding Nursery & Primary School located in UEB Zone, Mulago II Parish, Kawempe Division, Kampala.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Registered under the Ministry of Education, Sports and Information Technology with Registration Number PPS/M/150, MBS has been a pillar of hope for 27 years, providing quality, affordable, and compassionate education to vulnerable children in the Mulago community.
+                    </p>
+                    <p class="text-gray-600">
+                        We serve children from the most challenging backgrounds — orphans, children of single mothers, and families living in extreme poverty.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="placeholder" style="height: 12rem;"></div>
+                    <div class="placeholder" style="height: 12rem;"></div>
+                    <div class="placeholder" style="height: 12rem;"></div>
+                    <div class="placeholder" style="height: 12rem;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Impact -->
+    <section class="bg-gray-50">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact: 27 Years of Hope</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 mb-12">
+                <div class="icon-card">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="text-3xl">27</div>
+                    <div class="text-gray-600">Years of Service</div>
+                </div>
+                <div class="icon-card">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <div class="text-3xl">288</div>
+                    <div class="text-gray-600">Children Currently Enrolled</div>
+                </div>
+                <div class="icon-card">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <div class="text-3xl">1000+</div>
+                    <div class="text-gray-600">Lives Transformed</div>
+                </div>
+                <div class="icon-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="text-3xl">100%</div>
+                    <div class="text-gray-600">Safe Learning Environment</div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-2xl mb-4">What We Provide</h3>
+                <div class="grid md:grid-cols-2">
+                    <div class="space-y-2">
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            Safe learning environment
+                        </div>
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            Daily meals through "Bright Meals" program
+                        </div>
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            Encouragement and mentorship
+                        </div>
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            Protection from violence and exploitation
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            Chance to build a better future
+                        </div>
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            First-in-family educational opportunities
+                        </div>
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            Pathway out of generational poverty
+                        </div>
+                        <div class="flex items-start">
+                            <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                            Community transformation center
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum & Activities -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Holistic Education & Development</h2>
+            </div>
+            <div class="grid md:grid-cols-2">
+                <div>
+                    <h3 class="text-2xl mb-6"><i class="fas fa-book-open text-blue-600 mr-3"></i>Comprehensive Curriculum</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold mb-2">Early Grade (Nursery, P1–P3)</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• Literacy & Numeracy</li>
+                                <li>• Creative Arts</li>
+                                <li>• Reading & Library Time</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Upper Primary (P4–P7)</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• Science</li>
+                                <li>• Social Studies</li>
+                                <li>• Christian Religious Education</li>
+                                <li>• Mathematics</li>
+                                <li>• English Language</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Additional Programs</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• ICT Integration (from P3)</li>
+                                <li>• Life Skills Education</li>
+                                <li>• Environmental Education</li>
+                                <li>• Weekly Library & Reading Hours</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl mb-6"><i class="fas fa-users text-green-600 mr-3"></i>Sports & Creative Activities</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold mb-2">Sports Programs</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• Football</li>
+                                <li>• Netball</li>
+                                <li>• Athletics</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Music, Dance & Drama (MDD)</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• Talent development</li>
+                                <li>• Community performances</li>
+                                <li>• Cultural expression</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="placeholder" style="height: 8rem;"></div>
+                        <div class="placeholder" style="height: 8rem;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Impact -->
+    <section class="bg-gray-50">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Transformation</h2>
+            </div>
+            <div class="card">
+                <p class="text-gray-600 text-lg mb-6">
+                    Mulago Bright School is more than an educational institution — it is a center of transformation for the whole community.
+                </p>
+                <div class="grid md:grid-cols-2">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Community Programs</h3>
+                        <div class="space-y-2 text-gray-600">
+                            <div class="flex items-start">
+                                <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                                Weekend adult literacy classes
+                            </div>
+                            <div class="flex items-start">
+                                <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                                Neighborhood clean-up campaigns
+                            </div>
+                            <div class="flex items-start">
+                                <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                                "Bright Meals" feeding program for 50+ vulnerable children
+                            </div>
+                            <div class="flex items-start">
+                                <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                                Partnerships with clinics for child immunization drives
+                            </div>
+                            <div class="flex items-start">
+                                <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                                Youth Music, Dance & Drama training
+                            </div>
+                            <div class="flex items-start">
+                                <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                                Trauma healing sessions for vulnerable children
+                            </div>
+                            <div class="flex items-start">
+                                <div style="width: 0.5rem; height: 0.5rem; background: var(--green-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                                Community book donations
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Partnership Impact</h3>
+                        <div class="space-y-4">
+                            <div style="background: #dbeafe; padding: 1rem; border-radius: 0.5rem;">
+                                <p class="font-semibold">RUTNAK PEAL DEVELOPMENT FOUNDATION</p>
+                                <p class="text-gray-600">Dr. Seyoum Dejere Baklon and Ruth Nasasira donated textbooks and reading materials worth 3,000,000 UGX</p>
+                            </div>
+                            <div style="background: #dcfce7; padding: 1rem; border-radius: 0.5rem;">
+                                <p class="font-semibold">EMPOWER LIVES FOUNDATION CANADA</p>
+                                <p class="text-gray-600">Mr. Charles Mutyaba, Edmond Kalungi, and Robert Sebunya donated scholastic materials to orphans and needy children</p>
+                            </div>
+                        </div>
+                        <div class="placeholder mt-4" style="height: 12rem;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Crisis -->
+    <section class="bg-red-50">
+        <div class="container">
+            <div class="section-title">
+                <h2>A Crisis That Threatens Everything</h2>
+            </div>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <div class="text-center mb-6">
+                    <div style="width: 4rem; height: 4rem; background: var(--red-100); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: var(--red-600); font-size: 2rem;">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Land Ultimatum: Buy or Vacate</h3>
+                    <p class="text-red-600 font-semibold">"Purchase the land for USD 100,000 or vacate by December 2025."</p>
+                </div>
+                <div class="highlight">
+                    <p class="text-red-800 font-semibold">If the school is forced to close:</p>
+                </div>
+                <div class="space-y-3 text-gray-600">
+                    <div class="flex items-start">
+                        <div style="width: 0.5rem; height: 0.5rem; background: var(--red-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                        288 children will be pushed out of school immediately
+                    </div>
+                    <div class="flex items-start">
+                        <div style="width: 0.5rem; height: 0.5rem; background: var(--red-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                        Many will fall back into early marriage, crime, exploitation, or street life
+                    </div>
+                    <div class="flex items-start">
+                        <div style="width: 0.5rem; height: 0.5rem; background: var(--red-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                        Single mothers will lose the only safe place for their children
+                    </div>
+                    <div class="flex items-start">
+                        <div style="width: 0.5rem; height: 0.5rem; background: var(--red-600); border-radius: 9999px; margin-top: 0.375rem; margin-right: 0.75rem;"></div>
+                        The community will lose one of its most important institutions
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <p class="text-lg font-semibold">This is not just a school at risk — an entire generation hangs in the balance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Support -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why We Need Your Support Now</h2>
+            </div>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <p class="text-gray-600 mb-6">
+                    MBS operates with extremely limited resources. Even though tuition is UGX 230,000 per term, many parents can pay only UGX 30,000 or less due to deep poverty.
+                </p>
+                <div class="grid md:grid-cols-2 mb-6">
+                    <div class="card" style="background: var(--white);">
+                        <h4 class="font-bold mb-2">Current Challenges:</h4>
+                        <div class="space-y-1 text-gray-600">
+                            <div>• Teachers going months without full salaries</div>
+                            <div>• Daily struggles to provide food, water, electricity</div>
+                            <div>• Limited funds for learning materials</div>
+                            <div>• Very limited building maintenance funds</div>
+                        </div>
+                    </div>
+                    <div class="card" style="background: var(--white);">
+                        <h4 class="font-bold mb-2">We're Appealing To:</h4>
+                        <div class="space-y-1 text-gray-600">
+                            <div>• Compassionate individuals</div>
+                            <div>• Philanthropists</div>
+                            <div>• NGOs & foundations</div>
+                            <div>• Corporate donors</div>
+                            <div>• Ugandans in the diaspora</div>
+                            <div>• Global friends of education</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-lg font-semibold">Every donation, big or small, brings us closer to saving this school.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Your Contribution Achieves -->
+    <section style="background: linear-gradient(90deg, var(--green-600) 0%, var(--blue-600) 100%); color: var(--white);">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--white);">What Your Contribution Will Achieve</h2>
+                <div style="background: var(--white);"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4">
+                <div class="text-center">
+                    <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.2); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-landmark" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Secure Permanent Land</h3>
+                    <p style="opacity: 0.9;">Guarantee a stable home for generations of learners.</p>
+                </div>
+                <div class="text-center">
+                    <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.2); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-users" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Keep Children in School</h3>
+                    <p style="opacity: 0.9;">Prevent 288 children from falling back into poverty or exploitation.</p>
+                </div>
+                <div class="text-center">
+                    <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.2); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Sustain Essential Services</h3>
+                    <p style="opacity: 0.9;">Ensure consistent meals, water, electricity, and learning materials.</p>
+                </div>
+                <div class="text-center">
+                    <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.2); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-building" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Strengthen Community</h3>
+                    <p style="opacity: 0.9;">Keep MBS as a pillar of hope for the entire community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gray-900">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-6">A Call to Action</h2>
+                <p class="text-xl mb-8" style="max-width: 800px; margin: 0 auto;">
+                    We believe no child should lose their education because of poverty or land insecurity. We believe a school built on faith, sacrifice, and community should not disappear.
+                </p>
+                <div class="text-2xl font-bold" style="color: var(--yellow-400); mb-8;">
+                    With your help, we can:
+                </div>
+                <div class="grid md:grid-cols-3" style="max-width: 800px; margin: 0 auto;">
+                    <div style="background: #1f2937; padding: 1rem; border-radius: 0.5rem; margin: 0.5rem;">
+                        <p class="text-lg">Keep hope alive</p>
+                    </div>
+                    <div style="background: #1f2937; padding: 1rem; border-radius: 0.5rem; margin: 0.5rem;">
+                        <p class="text-lg">Transform generations</p>
+                    </div>
+                    <div style="background: #1f2937; padding: 1rem; border-radius: 0.5rem; margin: 0.5rem;">
+                        <p class="text-lg">Save this school</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Help Us Save MBS</h2>
+                <p class="text-xl text-gray-600 mt-4">No amount is too small. Every contribution counts.</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <!-- Bank Transfer -->
+                <div class="donation-method">
+                    <h3><i class="fas fa-building text-blue-600"></i>Direct Bank Transfer (Highly Recommended)</h3>
+                    <div class="grid md:grid-cols-2">
+                        <div class="text-gray-700">
+                            <p><span class="font-semibold">Account Name:</span> Mulago Bright Standard Primary School</p>
+                            <p><span class="font-semibold">Bank:</span> Stanbic Bank Uganda Limited</p>
+                            <p><span class="font-semibold">Account Number:</span> 9030005948060</p>
+                        </div>
+                        <div class="text-gray-700">
+                            <p><span class="font-semibold">Branch:</span> Wandegeya</p>
+                            <p><span class="font-semibold">SWIFT Code:</span> SBICUGKXXX</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Money -->
+                <div class="donation-method" style="background: var(--green-50);">
+                    <h3><i class="fas fa-globe text-green-600"></i>Mobile Money Donations</h3>
+                    <div class="grid md:grid-cols-2">
+                        <div class="card" style="margin-top: 1rem;">
+                            <h4 class="font-bold mb-2">MTN Mobile Money</h4>
+                            <p><span class="font-semibold">Number:</span> 0784 092844</p>
+                            <p><span class="font-semibold">Name:</span> Mukose Patrick</p>
+                        </div>
+                        <div class="card" style="margin-top: 1rem;">
+                            <h4 class="font-bold mb-2">Airtel Money</h4>
+                            <p><span class="font-semibold">Number:</span> 0754 804323</p>
+                            <p><span class="font-semibold">Name:</span> Mukose Patrick</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- International -->
+                <div class="donation-method" style="background: var(--purple-50);">
+                    <h3><i class="fas fa-globe text-purple-600"></i>International Donations</h3>
+                    <p class="text-gray-700">
+                        <span class="font-semibold">WorldRemit / Sendwave:</span> Send to 0784 092844 (Mukose Patrick)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="bg-gray-800">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+                <div class="contact-info">
+                    <div class="mb-6">
+                        <div class="flex items-center justify-center mb-2">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span class="font-semibold">Address:</span>
+                        </div>
+                        <p class="text-lg">
+                            Mulago Bright Standard Primary School<br>
+                            Plot 84, Block 5, UEB Zone<br>
+                            P.O. Box 2478, Kampala, Uganda
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-2">
+                        <div>
+                            <div class="flex items-center justify-center mb-2">
+                                <i class="fas fa-phone mr-2"></i>
+                                <span class="font-semibold">Phone:</span>
+                            </div>
+                            <div class="space-y-1">
+                                <p>+256-784-092844</p>
+                                <p>+256-754-804323</p>
+                                <p>+256-752-825224</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-center mb-2">
+                                <i class="fas fa-envelope mr-2"></i>
+                                <span class="font-semibold">Email:</span>
+                            </div>
+                            <p class="text-lg">mulagobrightstandardp.sch@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mulago Bright Standard Primary School. All rights reserved.</p>
+            <p class="mt-2" style="color: #9ca3af;">"Save a School. Save a Child's Future."</p>
+        </div>
+    </footer>
+</body>
+</html>
+
